@@ -1,11 +1,11 @@
-- domains: 
-  - www.thestar.com
-  - www.niagarafallsreview.ca
-  - www.stcatharinesstandard.ca
-  - www.thepeterboroughexaminer.com
-  - www.therecord.com
-  - www.thespec.com
-  - www.wellandtribune.ca
+- domains:
+    - www.thestar.com
+    - www.niagarafallsreview.ca
+    - www.stcatharinesstandard.ca
+    - www.thepeterboroughexaminer.com
+    - www.therecord.com
+    - www.thespec.com
+    - www.wellandtribune.ca
   injections:
     - position: head
       append: |
@@ -34,13 +34,13 @@
           });
         </script>
 
-- domains: 
-  - www.nytimes.com
-  - www.time.com
+- domains:
+    - www.nytimes.com
+    - www.time.com
   headers:
     ueser-agent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
     cookie: nyt-a=; nyt-gdpr=0; nyt-geo=DE; nyt-privacy=1
-    referer: https://www.google.com/ 
+    referer: https://www.google.com/
   injections:
     - position: head
       append: |
@@ -52,16 +52,16 @@
           });
         </script>
 
-- domains: 
-  - www.architecturaldigest.com
-  - www.bonappetit.com
-  - www.cntraveler.com
-  - www.epicurious.com
-  - www.gq.com
-  - www.newyorker.com
-  - www.vanityfair.com
-  - www.vogue.com
-  - www.wired.com
+- domains:
+    - www.architecturaldigest.com
+    - www.bonappetit.com
+    - www.cntraveler.com
+    - www.epicurious.com
+    - www.gq.com
+    - www.newyorker.com
+    - www.vanityfair.com
+    - www.vogue.com
+    - www.wired.com
   injections:
     - position: head
       append: |
@@ -121,7 +121,7 @@
     x-forwarded-for: none
     user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
     content-security-policy: script-src 'self';
-    cookie: 
+    cookie:
 
 # loads amp version of page
 - domain: tagesspiegel.de
@@ -158,15 +158,30 @@
           });
         </script>
 
+- domain: www.radsport-news.com
+  injections:
+    - position: head
+      append: |
+        <script>
+             const ingterval = setInterval(() => {
+                const element = document.querySelector('div[data-nosnippet="data-nosnippet"]');
+
+                if(element){
+                      element.remove();
+                    clearInterval(ingterval)
+                  }
+              }, 500)
+        </script>
+
 - domains:
-  - myprivacy.dpgmedia.be
-  - myprivacy.dpgmedia.nl
+    - myprivacy.dpgmedia.be
+    - myprivacy.dpgmedia.nl
   headers:
     cookie: isBot=true; authId=1
     x-forwarded-for: none
     referer: https://news.google.com
 - domains:
-  - demorgen.be
+    - demorgen.be
   headers:
     cookie: isBot=true; authId=1
     user-agent: Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; Googlebot-News; +http://www.google.com/bot.html) Chrome/121.0.6140.0 Safari/537.36
@@ -208,4 +223,3 @@
             }, 1000);
           })
         </script>
-
