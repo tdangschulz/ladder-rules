@@ -1,3 +1,18 @@
+- domain: www.radsport-news.com
+  injections:
+    - position: head
+      append: |
+        <script>
+             const interval = setInterval(() => {
+                const element = document.querySelector('div[data-nosnippet="data-nosnippet"]');
+
+                if(element){
+                    element.remove();
+                    clearInterval(interval)
+                  }
+              }, 500)
+        </script>
+
 - domains:
     - www.thestar.com
     - www.niagarafallsreview.ca
@@ -157,22 +172,6 @@
             removeDOMElement(paywall)
           });
         </script>
-
-- domain: www.radsport-news.com
-  injections:
-    - position: head
-      append: |
-        <script>
-             const ingterval = setInterval(() => {
-                const element = document.querySelector('div[data-nosnippet="data-nosnippet"]');
-
-                if(element){
-                      element.remove();
-                    clearInterval(ingterval)
-                  }
-              }, 500)
-        </script>
-
 - domains:
     - myprivacy.dpgmedia.be
     - myprivacy.dpgmedia.nl
