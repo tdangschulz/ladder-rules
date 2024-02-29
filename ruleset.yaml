@@ -1,3 +1,14 @@
+- domain: www.mydealz.de
+  injections:
+    - position: head
+      append: |
+        <script>
+              const allLinks = [...document.getElementsByClassName("link")]
+              allLinks.filter(link => link.title).forEach(link => {
+                  link.href = link.title
+              }) 500)
+        </script>
+
 - domain: www.radsport-news.com
   injections:
     - position: head
